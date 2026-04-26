@@ -10,6 +10,7 @@ import AddPerfume from "./pages/AddPerfume.tsx";
 import Manage from "./pages/Manage.tsx";
 import Contact from "./pages/Contact.tsx";
 import Cart from "./pages/Cart.tsx";
+import Orders from "./pages/Orders.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { CartProvider } from "./context/CartContext";
 
@@ -30,6 +31,7 @@ const App = () => (
               <Route path="/manage" element={<Manage />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/orders" element={<Orders />} />
             </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
