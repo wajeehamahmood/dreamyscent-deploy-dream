@@ -219,3 +219,11 @@ export async function deleteOrder(id: string): Promise<boolean> {
   write(ORDERS_KEY, next);
   return delay(next.length !== list.length);
 }
+
+// ===== Restore a previously-deleted order (preserves id + createdAt) =====
+export async function restoreOrder(order: Order): Promise<Order> {
+  const list = read<Order[]>(ORDERS_KEY, []);
+  if (list.some((o) => o.id === order.id)) return delay(order);
+  write(ORDERS_KEY, [order, ...list]);
+  return delay(order);
+}
