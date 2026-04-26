@@ -23,9 +23,9 @@ export interface ContactSubmission {
   createdAt: number;
 }
 
-const PERFUMES_KEY = "dreamscents.perfumes";
-const CONTACTS_KEY = "dreamscents.contacts";
-const ORDERS_KEY = "dreamscents.orders";
+const PERFUMES_KEY = "dreamgems.items";
+const CONTACTS_KEY = "dreamgems.contacts";
+const ORDERS_KEY = "dreamgems.orders";
 
 export interface OrderItem {
   id: string;
