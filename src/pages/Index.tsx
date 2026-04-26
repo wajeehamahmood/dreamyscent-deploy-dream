@@ -1,12 +1,25 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, Heart, Star } from "lucide-react";
+import { ArrowRight, Sparkles, Heart, Star, ShoppingBag } from "lucide-react";
 import heroImg from "@/assets/hero-perfume.jpg";
 import { getPerfumes, Perfume } from "@/lib/api";
 import PerfumeCard from "@/components/PerfumeCard";
+import { useCart } from "@/context/CartContext";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const [featured, setFeatured] = useState<Perfume[]>([]);
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleBuyNow = () => {
+    if (featured[0]) {
+      addToCart(featured[0]);
+      toast.success(`${featured[0].name} added to cart ✨`);
+      navigate("/cart");
+    }
+  };
 
   useEffect(() => {
     getPerfumes().then((all) => setFeatured(all.slice(0, 3)));
@@ -36,12 +49,12 @@ const Index = () => {
               >
                 Explore Collection <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                to="/contact"
+              <button
+                onClick={handleBuyNow}
                 className="glass rounded-full px-7 py-3 inline-flex items-center gap-2 font-medium hover:bg-white/70 transition-all"
               >
-                Get in Touch
-              </Link>
+                <ShoppingBag className="w-4 h-4" /> Buy Now
+              </button>
             </div>
 
             <div className="mt-10 flex items-center gap-8 justify-center lg:justify-start text-sm text-muted-foreground">

@@ -1,7 +1,8 @@
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import { Sparkles as SparkleIcon } from "lucide-react";
+import { Sparkles as SparkleIcon, ShoppingBag } from "lucide-react";
 import Sparkles from "./Sparkles";
 import { useEffect, useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 const links = [
   { to: "/", label: "Home" },
@@ -14,6 +15,7 @@ const links = [
 const Layout = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
+  const { count } = useCart();
 
   useEffect(() => {
     setOpen(false);
@@ -52,6 +54,19 @@ const Layout = () => {
               </li>
             ))}
           </ul>
+
+          <Link
+            to="/cart"
+            className="relative ml-2 p-2 rounded-full hover:bg-white/40 transition-colors"
+            aria-label={`Cart with ${count} items`}
+          >
+            <ShoppingBag className="w-5 h-5 text-foreground/80" />
+            {count > 0 && (
+              <span className="absolute -top-1 -right-1 bg-gradient-primary text-primary-foreground text-[10px] font-semibold w-5 h-5 rounded-full flex items-center justify-center shadow-md">
+                {count}
+              </span>
+            )}
+          </Link>
 
           <button
             className="md:hidden p-2 rounded-lg hover:bg-white/40"
