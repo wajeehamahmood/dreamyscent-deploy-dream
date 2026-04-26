@@ -7,7 +7,7 @@ import { useCart } from "@/context/CartContext";
 const links = [
   { to: "/", label: "Home" },
   { to: "/shop", label: "Shop" },
-  { to: "/add", label: "Add Perfume" },
+  { to: "/add", label: "Add Piece" },
   { to: "/manage", label: "Manage" },
   { to: "/orders", label: "Orders" },
   { to: "/contact", label: "Contact" },
@@ -32,7 +32,7 @@ const Layout = () => {
           <Link to="/" className="flex items-center gap-2 group">
             <SparkleIcon className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" />
             <span className="font-serif text-2xl font-semibold text-gradient">
-              DreamScents
+              DreamGems
             </span>
           </Link>
 
@@ -111,11 +111,11 @@ const Layout = () => {
           <div className="flex items-center justify-center gap-2 mb-2">
             <SparkleIcon className="w-4 h-4 text-primary" />
             <span className="font-serif text-xl text-gradient font-semibold">
-              DreamScents
+              DreamGems
             </span>
           </div>
           <p className="text-sm text-muted-foreground">
-            Where Fragrance Meets Fantasy · © {new Date().getFullYear()}
+            Where Jewelry Meets Fantasy · © {new Date().getFullYear()}
           </p>
         </div>
       </footer>

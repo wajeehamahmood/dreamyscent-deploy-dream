@@ -35,7 +35,7 @@ const Shop = () => {
             The <span className="text-gradient italic">Collection</span>
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Browse, search and filter our complete library of dreamy fragrances.
+            Browse, search and filter our complete library of dreamy jewelry.
           </p>
         </header>
 
@@ -71,7 +71,7 @@ const Shop = () => {
           <div className="text-center py-20 text-muted-foreground">Loading dreams…</div>
         ) : filtered.length === 0 ? (
           <div className="glass rounded-2xl text-center py-20 text-muted-foreground">
-            No perfumes match your search.
+            No pieces match your search.
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

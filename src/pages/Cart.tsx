@@ -22,7 +22,7 @@ const Cart = () => {
           qty,
         })),
       });
-      toast.success("Order placed! ✨ Thank you for dreaming with us.");
+      toast.success("Order placed! ✨ Thank you for sparkling with us.");
       clearCart();
       navigate("/orders");
     } catch {
@@ -43,7 +43,7 @@ const Cart = () => {
         {items.length === 0 ? (
           <div className="glass-strong rounded-3xl text-center py-20 px-6">
             <ShoppingBag className="w-12 h-12 text-primary mx-auto mb-4" />
-            <p className="text-muted-foreground mb-6">Your cart is empty — let's find your scent.</p>
+            <p className="text-muted-foreground mb-6">Your cart is empty — let's find your sparkle.</p>
             <Link
               to="/shop"
               className="btn-dream rounded-full px-7 py-3 inline-flex items-center gap-2 font-medium"

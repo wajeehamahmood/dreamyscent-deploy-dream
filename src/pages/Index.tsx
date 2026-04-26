@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles, Heart, Star, ShoppingBag } from "lucide-react";
-import heroImg from "@/assets/hero-perfume.jpg";
+import heroImg from "@/assets/hero-jewelry.jpg";
 import { getPerfumes, Perfume } from "@/lib/api";
 import PerfumeCard from "@/components/PerfumeCard";
 import { useCart } from "@/context/CartContext";
@@ -35,12 +35,12 @@ const Index = () => {
               <Sparkles className="w-3.5 h-3.5" /> New Spring Collection
             </span>
             <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-6">
-              Discover Your <br />
-              <span className="text-gradient italic">Signature Scent</span>
+              Find Your <br />
+              <span className="text-gradient italic">Signature Sparkle</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8">
-              Where fragrance meets fantasy. Curated luxury perfumes crafted to capture
-              dreams in every drop.
+              Where jewelry meets fantasy. Curated luxury pieces crafted to capture
+              dreams in every gemstone.
             </p>
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
               <Link
@@ -69,7 +69,7 @@ const Index = () => {
             <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30" />
             <img
               src={heroImg}
-              alt="DreamScents luxury perfume bottle in pastel mist"
+              alt="DreamGems luxury jewelry on pastel pink silk"
               width={1536}
               height={1536}
               className="relative rounded-3xl w-full max-w-md mx-auto shadow-[var(--shadow-dream)]"
@@ -84,7 +84,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <p className="text-xs uppercase tracking-[0.3em] text-primary mb-3">Featured</p>
             <h2 className="font-serif text-4xl sm:text-5xl font-semibold">
-              Bestselling <span className="text-gradient italic">Fragrances</span>
+              Bestselling <span className="text-gradient italic">Treasures</span>
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -97,7 +97,7 @@ const Index = () => {
               to="/shop"
               className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
             >
-              View all perfumes <ArrowRight className="w-4 h-4" />
+              View all jewelry <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -111,16 +111,16 @@ const Index = () => {
             Crafted with <span className="text-gradient italic">love</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Every DreamScents fragrance is a love letter — composed by master perfumers,
-            bottled in crystal, and delivered to your doorstep with a touch of magic.
-            Explore floral whispers, smoky oud, fresh oceans and sweet reveries.
+            Every DreamGems piece is a love letter — designed by master jewelers,
+            set with ethically sourced stones, and delivered to your doorstep with a touch of magic.
+            Explore delicate rings, pearl necklaces, gemstone earrings and heirloom bracelets.
           </p>
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
             {[
-              { n: "120+", l: "Fragrances" },
-              { n: "40", l: "Perfumers" },
+              { n: "120+", l: "Pieces" },
+              { n: "40", l: "Jewelers" },
               { n: "25", l: "Countries" },
-              { n: "100%", l: "Cruelty-Free" },
+              { n: "100%", l: "Ethically Sourced" },
             ].map((s) => (
               <div key={s.l}>
                 <div className="font-serif text-3xl text-gradient font-semibold">{s.n}</div>

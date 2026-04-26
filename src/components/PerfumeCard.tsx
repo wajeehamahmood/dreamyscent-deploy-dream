@@ -26,7 +26,7 @@ const PerfumeCard = ({ perfume, actions }: Props) => {
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src =
-              "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&q=80";
+              "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80";
           }}
         />
       </div>
