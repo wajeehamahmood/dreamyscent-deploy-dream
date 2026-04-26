@@ -25,6 +25,23 @@ export interface ContactSubmission {
 
 const PERFUMES_KEY = "dreamscents.perfumes";
 const CONTACTS_KEY = "dreamscents.contacts";
+const ORDERS_KEY = "dreamscents.orders";
+
+export interface OrderItem {
+  id: string;
+  name: string;
+  brand: string;
+  price: number;
+  image: string;
+  qty: number;
+}
+
+export interface Order {
+  id: string;
+  items: OrderItem[];
+  total: number;
+  createdAt: number;
+}
 
 const SEED: Perfume[] = [
   {
@@ -177,4 +194,28 @@ export async function submitContact(
 
 export async function getContacts(): Promise<ContactSubmission[]> {
   return delay(read<ContactSubmission[]>(CONTACTS_KEY, []));
+}
+
+// ===== GET /api/orders =====
+export async function getOrders(): Promise<Order[]> {
+  const list = read<Order[]>(ORDERS_KEY, []);
+  return delay([...list].sort((a, b) => b.createdAt - a.createdAt));
+}
+
+// ===== POST /api/orders =====
+export async function createOrder(
+  data: Omit<Order, "id" | "createdAt">
+): Promise<Order> {
+  const list = read<Order[]>(ORDERS_KEY, []);
+  const created: Order = { ...data, id: uid(), createdAt: Date.now() };
+  write(ORDERS_KEY, [created, ...list]);
+  return delay(created);
+}
+
+// ===== DELETE /api/orders/[id] =====
+export async function deleteOrder(id: string): Promise<boolean> {
+  const list = read<Order[]>(ORDERS_KEY, []);
+  const next = list.filter((o) => o.id !== id);
+  write(ORDERS_KEY, next);
+  return delay(next.length !== list.length);
 }

@@ -2,16 +2,32 @@ import { Link, useNavigate } from "react-router-dom";
 import { Minus, Plus, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { toast } from "sonner";
+import { createOrder } from "@/lib/api";
 
 const Cart = () => {
   const { items, total, updateQty, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate();
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (items.length === 0) return;
-    toast.success("Order placed! ✨ Thank you for dreaming with us.");
-    clearCart();
-    navigate("/shop");
+    try {
+      await createOrder({
+        total,
+        items: items.map(({ perfume, qty }) => ({
+          id: perfume.id,
+          name: perfume.name,
+          brand: perfume.brand,
+          price: perfume.price,
+          image: perfume.image,
+          qty,
+        })),
+      });
+      toast.success("Order placed! ✨ Thank you for dreaming with us.");
+      clearCart();
+      navigate("/orders");
+    } catch {
+      toast.error("Could not place your order. Please try again.");
+    }
   };
 
   return (
