@@ -85,6 +85,15 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        serif: ['"Cormorant Garamond"', 'serif'],
+        sans: ['Inter', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-dream': 'var(--gradient-dream)',
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-primary': 'var(--gradient-primary)',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
