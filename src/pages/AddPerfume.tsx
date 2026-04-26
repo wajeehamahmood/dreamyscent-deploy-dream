@@ -8,7 +8,7 @@ const empty = {
   name: "",
   brand: "",
   price: "",
-  category: "Floral" as Category,
+  category: "Rings" as Category,
   description: "",
   image: "",
 };
@@ -42,9 +42,9 @@ const AddPerfume = () => {
         description: form.description.trim().slice(0, 500),
         image:
           form.image.trim() ||
-          "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&q=80",
+          "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80",
       });
-      toast({ title: "✨ Perfume added", description: `${form.name} joined the collection.` });
+      toast({ title: "✨ Piece added", description: `${form.name} joined the collection.` });
       navigate("/shop");
     } catch {
       toast({ title: "Something went wrong", variant: "destructive" });
@@ -62,10 +62,10 @@ const AddPerfume = () => {
         <header className="text-center mb-10 animate-fade-up">
           <Sparkles className="w-8 h-8 text-primary mx-auto mb-3" />
           <h1 className="font-serif text-5xl font-semibold mb-3">
-            Add a <span className="text-gradient italic">Perfume</span>
+            Add a <span className="text-gradient italic">Piece</span>
           </h1>
           <p className="text-muted-foreground">
-            Compose a new fragrance for the DreamScents library.
+            Add a new jewelry piece to the DreamGems library.
           </p>
         </header>
 

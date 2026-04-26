@@ -47,7 +47,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-3 gap-6">
           <aside className="space-y-4">
             {[
-              { icon: Mail, title: "Email", value: "hello@dreamscents.com" },
+              { icon: Mail, title: "Email", value: "hello@dreamgems.com" },
               { icon: Phone, title: "Phone", value: "+1 (555) 010-2024" },
               { icon: MapPin, title: "Boutique", value: "12 Rue des Rêves, Paris" },
             ].map((c) => (

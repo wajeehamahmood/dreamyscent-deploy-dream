@@ -63,10 +63,10 @@ const Manage = () => {
       <div className="max-w-6xl mx-auto">
         <header className="text-center mb-10 animate-fade-up">
           <h1 className="font-serif text-5xl font-semibold mb-3">
-            Manage <span className="text-gradient italic">Perfumes</span>
+            Manage <span className="text-gradient italic">Jewelry</span>
           </h1>
           <p className="text-muted-foreground">
-            Edit, update and remove fragrances from your boutique.
+            Edit, update and remove pieces from your boutique.
           </p>
         </header>
 
@@ -74,7 +74,7 @@ const Manage = () => {
           <div className="text-center py-20 text-muted-foreground">Loading…</div>
         ) : list.length === 0 ? (
           <div className="glass rounded-2xl text-center py-20 text-muted-foreground">
-            No perfumes yet. Add your first one!
+            No pieces yet. Add your first one!
           </div>
         ) : (
           <div className="space-y-4">
@@ -99,7 +99,7 @@ const Manage = () => {
                           <input className={inputCls} value={draft.name || ""} onChange={(e) => setDraft({ ...draft, name: e.target.value })} placeholder="Name" />
                           <input className={inputCls} value={draft.brand || ""} onChange={(e) => setDraft({ ...draft, brand: e.target.value })} placeholder="Brand" />
                           <input className={inputCls} type="number" value={draft.price ?? ""} onChange={(e) => setDraft({ ...draft, price: parseFloat(e.target.value) })} placeholder="Price" />
-                          <select className={inputCls} value={draft.category} onChange={(e) => setDraft({ ...draft, category: e.target.value as Category })}>
+                          <select className={inputCls} value={draft.category as string} onChange={(e) => setDraft({ ...draft, category: e.target.value as Category })}>
                             {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
                           </select>
                           <input className={inputCls + " sm:col-span-2"} value={draft.image || ""} onChange={(e) => setDraft({ ...draft, image: e.target.value })} placeholder="Image URL" />

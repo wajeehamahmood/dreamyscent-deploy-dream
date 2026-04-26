@@ -1,8 +1,8 @@
 // DreamScents API layer — localStorage-backed, mimics REST endpoints.
 // Easy to swap to real Vercel /api routes later: just replace these functions with fetch() calls.
 
-export type Category = "Floral" | "Oud" | "Fresh" | "Sweet" | "Luxury";
-export const CATEGORIES: Category[] = ["Floral", "Oud", "Fresh", "Sweet", "Luxury"];
+export type Category = "Rings" | "Necklaces" | "Earrings" | "Bracelets" | "Luxury";
+export const CATEGORIES: Category[] = ["Rings", "Necklaces", "Earrings", "Bracelets", "Luxury"];
 
 export interface Perfume {
   id: string;
@@ -46,62 +46,62 @@ export interface Order {
 const SEED: Perfume[] = [
   {
     id: "p1",
-    name: "Rose Étoile",
+    name: "Rose Étoile Ring",
     brand: "Maison Lune",
-    price: 145,
-    category: "Floral",
-    description: "A romantic bouquet of Bulgarian rose, peony and a whisper of vanilla musk.",
-    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&q=80",
+    price: 245,
+    category: "Rings",
+    description: "A romantic rose-gold band set with a pink tourmaline and a whisper of pavé diamonds.",
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80",
     createdAt: Date.now() - 9000000,
   },
   {
     id: "p2",
-    name: "Velvet Oud",
+    name: "Velvet Pearl Necklace",
     brand: "Nuit d'Or",
-    price: 220,
-    category: "Oud",
-    description: "Smoky oud wood wrapped in saffron, leather and warm amber resin.",
-    image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=800&q=80",
+    price: 420,
+    category: "Necklaces",
+    description: "Hand-knotted Akoya pearls on silk, finished with a warm 18k gold clasp.",
+    image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&q=80",
     createdAt: Date.now() - 8000000,
   },
   {
     id: "p3",
-    name: "Ocean Reverie",
+    name: "Ocean Drop Earrings",
     brand: "Aqua Belle",
-    price: 95,
-    category: "Fresh",
-    description: "Crisp sea breeze, bergamot and white tea — a daydream by the shore.",
-    image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=800&q=80",
+    price: 195,
+    category: "Earrings",
+    description: "Aquamarine teardrops suspended on whisper-thin white gold threads.",
+    image: "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=800&q=80",
     createdAt: Date.now() - 7000000,
   },
   {
     id: "p4",
-    name: "Sucre Étoilé",
+    name: "Sucre Charm Bracelet",
     brand: "Petite Rêve",
-    price: 110,
-    category: "Sweet",
-    description: "Spun sugar, praline almond and a drizzle of caramel under starlight.",
-    image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59d75?w=800&q=80",
+    price: 180,
+    category: "Bracelets",
+    description: "A delicate gold chain dusted with sugar-pink quartz and tiny star charms.",
+    image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=800&q=80",
     createdAt: Date.now() - 6000000,
   },
   {
     id: "p5",
-    name: "Couture Noir",
+    name: "Couture Noir Tiara",
     brand: "Maison Lune",
-    price: 320,
+    price: 1320,
     category: "Luxury",
-    description: "Black orchid, iris and rare oud — opulence captured in crystal.",
-    image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=800&q=80",
+    description: "Black diamonds and onyx set in white gold — opulence captured in a crown.",
+    image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800&q=80",
     createdAt: Date.now() - 5000000,
   },
   {
     id: "p6",
-    name: "Jasmine Dream",
+    name: "Jasmine Halo Ring",
     brand: "Fleur Blanche",
-    price: 130,
-    category: "Floral",
-    description: "Night-blooming jasmine, ylang ylang and a touch of sandalwood.",
-    image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=800&q=80",
+    price: 360,
+    category: "Rings",
+    description: "A flower-shaped halo of moonstones around a single brilliant-cut diamond.",
+    image: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=800&q=80",
     createdAt: Date.now() - 4000000,
   },
 ];
