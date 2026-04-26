@@ -1,4 +1,7 @@
 import { Perfume } from "@/lib/api";
+import { ShoppingBag } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+import { toast } from "sonner";
 
 interface Props {
   perfume: Perfume;
@@ -6,6 +9,13 @@ interface Props {
 }
 
 const PerfumeCard = ({ perfume, actions }: Props) => {
+  const { addToCart } = useCart();
+
+  const handleAdd = () => {
+    addToCart(perfume);
+    toast.success(`${perfume.name} added to cart ✨`);
+  };
+
   return (
     <article className="glass-strong rounded-3xl overflow-hidden group transition-all hover:-translate-y-2 hover:shadow-[var(--shadow-glow)] animate-fade-up">
       <div className="aspect-[4/5] overflow-hidden bg-gradient-hero">
@@ -41,7 +51,15 @@ const PerfumeCard = ({ perfume, actions }: Props) => {
           <span className="font-serif text-2xl text-gradient font-semibold">
             ${perfume.price}
           </span>
-          {actions}
+          {actions ?? (
+            <button
+              onClick={handleAdd}
+              className="btn-dream rounded-full px-4 py-2 inline-flex items-center gap-1.5 text-sm font-medium"
+              aria-label={`Add ${perfume.name} to cart`}
+            >
+              <ShoppingBag className="w-3.5 h-3.5" /> Add
+            </button>
+          )}
         </div>
       </div>
     </article>
